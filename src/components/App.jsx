@@ -30,7 +30,11 @@ function App() {
         </button>
       </div>
       <div>
-        <ul></ul>
+        <ul>
+          {listItems.map((item) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
       </div>
     </div>
   );
