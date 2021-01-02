@@ -1,2 +1,3 @@
 # todo-list-app
-Created with CodeSandbox
+
+React Todo List App
