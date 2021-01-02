@@ -13,7 +13,7 @@ function App() {
 
   function updateList() {
     updateListItems((prevValue) => {
-      return [...prevValue, listItem];
+      return [listItem, ...prevValue];
     });
 
     setListItem("");
@@ -31,8 +31,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {listItems.map((item) => {
-            return <li>{item}</li>;
+          {listItems.map((todoItem) => {
+            return <li>{todoItem}</li>;
           })}
         </ul>
       </div>
