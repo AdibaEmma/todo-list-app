@@ -13,13 +13,22 @@ function App() {
   }
 
   function updateList() {
-    updateListItems((prevValue) => {
-      return [listItem, ...prevValue];
+    updateListItems((prevItems) => {
+      return [listItem, ...prevItems];
     });
 
     setListItem("");
   }
 
+  function deleteItem(id) {
+    console.log(id);
+
+    updateListItems((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
   return (
     <div className="container">
       <div className="heading">
@@ -33,8 +42,13 @@ function App() {
       </div>
       <div>
         <ul>
-          {listItems.map((todoItem) => (
-            <TodoItem item={todoItem} />
+          {listItems.map((todoItem, index) => (
+            <TodoItem
+              key={index}
+              id={index}
+              item={todoItem}
+              onChecked={deleteItem}
+            />
           ))}
         </ul>
       </div>
